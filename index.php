@@ -54,74 +54,34 @@
 ?> 
 
 <body>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Hotel</th>
-      <?php 
-foreach ($hotels as $key => $hotel) {  
-            ?>
-           <td><?php echo $key + 1 ?></td>
-            <?php
-}
-?>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Name</th>
-<?php 
-foreach ($hotels as $hotel) {   
-            ?>
-           <td><?php echo $hotel['name']?></td>
-            <?php
-}
-?>   
-    </tr>
-    <tr>
-      <th scope="row">Description</th>
-      <?php 
-      for ($i = 0; $i < count($hotels);$i++) {
-      ?>
-     <td><?php echo $hotels[$i]['description']?></td>
-      <?php
-      }
-      ?>
-      
-    </tr>
-    <tr>
-      <th scope="row">Parking</th>
-      <?php 
-foreach ($hotels as $hotel) {
-    
-            ?>
-           <td><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
-            <?php
-}
-?>
-    </tr>
-    <tr>
-      <th scope="row">Vote</th>
-      <?php 
-foreach ($hotels as $hotel) { 
-            ?>
-            <td><?php echo $hotel['vote'] ?></td>
-            <?php
-}
-?>
-    </tr>
-    <tr>
-      <th scope="row">Distance to Center</th>
-      <?php 
-foreach ($hotels as $hotel) {
-            ?>
-           <td><?php echo $hotel['distance_to_center'] ?>Km</td>
-            <?php
-}
-?>
-    </tr>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Parcheggio</th>
+                <th scope="col">Voto</th>
+                <th scope="col">Distanza dal centro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+    foreach ($hotels as $hotel) {
+        ?>
+        <tr>
+            <td><?php echo $hotel['name']?></td>
+            <td><?php echo $hotel['description']?></td>
+            <td><?php echo $hotel['parking'] ? 'Si' : 'No'?></td>
+            <td><?php echo $hotel['vote']?></td>
+            <td><?php echo $hotel['distance_to_center']?>Km</td>
+        </tr>
+        <?php
+    };
+    ?>
   </tbody>
 </table>
+</div>
 </body>
 </html>
 
