@@ -59,75 +59,54 @@
   <thead>
     <tr>
       <th scope="col">Hotel</th>
-      <th scope="col">1</th>
-      <th scope="col">2</th>
-      <th scope="col">3</th>
-      <th scope="col">4</th>
-      <th scope="col">5</th>
+      <?php 
+foreach ($hotels as $key => $hotel) {  
+            ?>
+           <td><?php echo $key + 1 ?></td>
+            <?php
+}
+?>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">Name</th>
 <?php 
-foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $item ) {
-        if ($key == 'name') {
+foreach ($hotels as $hotel) {   
             ?>
-           <td><?php echo $item ?></td>
+           <td><?php echo $hotel['name']?></td>
             <?php
-        }
-    }
-
 }
-
-?>
-      
+?>   
     </tr>
     <tr>
       <th scope="row">Description</th>
       <?php 
-foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $item ) {
-        if ($key == 'description') {
+foreach ($hotels as $hotel) {  
             ?>
-           <td><?php echo $item ?></td>
-            <?php
-        }
-    }
-
+            <td><?php echo $hotel['description'] ?></td>
+            <?php  
 }
-
 ?>
     </tr>
     <tr>
       <th scope="row">Parking</th>
       <?php 
 foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $item ) {
-        if ($key == 'parking') {
+    
             ?>
-           <td><?php echo $item ? 'Yes' : 'No' ?></td>
+           <td><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
             <?php
-        }
-    }
-
 }
-
 ?>
     </tr>
     <tr>
       <th scope="row">Vote</th>
       <?php 
-foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $item ) {
-        if ($key == 'vote') {
+foreach ($hotels as $hotel) { 
             ?>
-           <td><?php echo $item ?></td>
+            <td><?php echo $hotel['vote'] ?></td>
             <?php
-        }
-    }
-
 }
 ?>
     </tr>
@@ -135,14 +114,9 @@ foreach ($hotels as $hotel) {
       <th scope="row">Distance to Center</th>
       <?php 
 foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $item ) {
-        if ($key == 'distance_to_center') {
             ?>
-           <td><?php echo $item ?>Km</td>
+           <td><?php echo $hotel['distance_to_center'] ?>Km</td>
             <?php
-        }
-    }
-
 }
 ?>
     </tr>
