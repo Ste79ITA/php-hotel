@@ -50,11 +50,19 @@
         ],
 
     ];
+    $parking = ($_GET['parcheggio'] ?? 'off');
+    
 
 ?> 
 
 <body>
-<div class="container">
+    <h1 class="d-flex justify-content-center pt-5">PHP Hotel</h1>
+<div class="container-sm pt-5">
+    <form action="" method="GET">
+        <input type="checkbox" name="parcheggio" id="1" > Filtra Hotels con parcheggio
+        <input type="submit" value="Cerca">
+    
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -68,15 +76,31 @@
         <tbody>
             <?php 
     foreach ($hotels as $hotel) {
-        ?>
-        <tr>
-            <td><?php echo $hotel['name']?></td>
-            <td><?php echo $hotel['description']?></td>
-            <td><?php echo $hotel['parking'] ? 'Si' : 'No'?></td>
-            <td><?php echo $hotel['vote']?></td>
-            <td><?php echo $hotel['distance_to_center']?>Km</td>
-        </tr>
-        <?php
+
+        if ($parking === 'on' && $hotel['parking'] === true) {
+
+            ?>
+            <tr>
+                <td><?php echo $hotel['name']?></td>
+                <td><?php echo $hotel['description']?></td>
+                <td><?php echo $hotel['parking'] ? 'Si' : 'No'?></td>
+                <td><?php echo $hotel['vote']?></td>
+                <td><?php echo $hotel['distance_to_center']?> Km</td>
+            </tr>
+            <?php
+        } else if ($parking === 'off') {
+            ?>
+            <tr>
+                <td><?php echo $hotel['name']?></td>
+                <td><?php echo $hotel['description']?></td>
+                <td><?php echo $hotel['parking'] ? 'Si' : 'No'?></td>
+                <td><?php echo $hotel['vote']?></td>
+                <td><?php echo $hotel['distance_to_center'] ?> Km</td>
+            </tr>
+            <?php
+        }
+
+        
     };
     ?>
   </tbody>
