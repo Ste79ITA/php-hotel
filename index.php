@@ -51,7 +51,6 @@
 
     ];
 
-    
 ?> 
 
 <body>
@@ -82,12 +81,13 @@ foreach ($hotels as $hotel) {
     <tr>
       <th scope="row">Description</th>
       <?php 
-foreach ($hotels as $hotel) {  
-            ?>
-            <td><?php echo $hotel['description'] ?></td>
-            <?php  
-}
-?>
+      for ($i = 0; $i < count($hotels);$i++) {
+      ?>
+     <td><?php echo $hotels[$i]['description']?></td>
+      <?php
+      }
+      ?>
+      
     </tr>
     <tr>
       <th scope="row">Parking</th>
