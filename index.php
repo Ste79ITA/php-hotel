@@ -59,7 +59,7 @@
     <h1 class="d-flex justify-content-center pt-5">PHP Hotel</h1>
 <div class="container-sm pt-5">
     <form action="" method="GET">
-        <input type="checkbox" name="parcheggio" id="1" > Filtra Hotels con parcheggio
+        <input type="checkbox" name="parcheggio" id="1" <?php echo $parking ? 'checked' : '' ?>> Filtra Hotels con parcheggio
         <input type="submit" value="Cerca">
     
     </form>
